@@ -310,9 +310,13 @@ jobs:
 
               <section>
                 <h3>Challenges of running Docker on HPC environments</h3>
+                <figure>
+                  <img src="images/angry-sysadmin.jpg">
+                </figure>
                 <ul>
-                  <li>Permissions on multi-user unix</li>
-                  <li>Permissions on shared file systems</li>
+                  <li>docker daemon runs as root</li>
+                  <li>users inside a docker container assume root level privilege</li>
+                  <li>makes mounting filesystems in a secure way impossible</li>
                 </ul>
               </section>
 
