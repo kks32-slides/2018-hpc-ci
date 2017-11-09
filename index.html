@@ -344,10 +344,29 @@ jobs:
                 </ul>
                 <img src="images/singularity.svg">
               </section>
+
+
+              <section>
+                <h3>Jenkins + CI on HPCS</h3>
+                <div style="float: left; width: 100%;">
+                  <pre>
+                    <code class="shell">
+singularity run \
+    --bind $(pwd):/lammps \
+    --bind /home/jenkins/lammps-run:lammps-run \
+    --bind /home/jenkins/lammps-dem-validation:lammps-dem-validation \
+    /home/jenkins/centos.img \
+    /lammps-run/compile.sh /lammps/src /lammps-dem-validation
+                      </code>
+                    </pre>
+                  <img style="border:0;" src="images/jenkins-ci.png" width="90%">
+                </div>
+                <p style="color:#239b56">Running Singularity images</p>
+              </section>
             </section>
 
             <section>
-              <!-- Software development roadmap -->
+              <!-- CI roadmap -->
               <section>
                 <h3>Vision for CI in HPCS</h3>
                 <div style="float: left; width: 45%;">
