@@ -251,10 +251,10 @@ addons:
                 <h3>TravisCI: Build matrix for different compilers</h3>
                 <div style="float: left; width: 100%;">
                   <span style="float: left; width: 50%; text-align: center;">
-                    <img style="border:0;" src="images/build-matrix1.png" width="80%">
+                    <img style="border:0;" src="images/build-matrix1.png" width="85%">
                   </span>
                   <span style="float: right; width: 50%; text-align: center;">
-                    <img style="border:0;" src="images/build-matrix2.png" width="80%">
+                    <img style="border:0;" src="images/build-matrix2.png" width="100%">
                   </span>
                 </div>
                 <p style="color:#239b56">Travis allows for Caching repos and directories</p>
@@ -271,6 +271,42 @@ addons:
                   <li>This guarantees that it will always run the same - <strong>Research reproducability</strong></li>
                   </ul>
                 <img style="border:0;" src="images/docker-vm.png" width="60%">
+              </section>
+
+              <section>
+                <h3>CircleCI: Custom Docker containers</h3>
+                <div style="float: left; width: 100%;">
+                  <span style="float: left; width: 60%; text-align: center;">
+                    <pre>
+                      <code class="shell">
+version: 2
+jobs:
+  build:
+    working_directory: /home/cbgeo/research/
+    docker:
+      - image: quay.io/cbgeo/mpm3d
+    steps:
+      - checkout
+      # GCC 6.3
+      - run:
+          name: GCC-6 build
+          command: |
+            mkdir -p build
+            [ "$(ls -A build)" ] && rm -rf build/*
+            cd build
+            cmake -DCMAKE_BUILD_TYPE=Release \
+                  -DCMAKE_CXX_COMPILER=g++ ..
+            make -j8 
+            ctest -VV
+                      </code>
+                    </pre>
+                  </span>
+                  <span style="float: right; width: 40%; text-align: center;">
+                    <img style="border:0;" src="images/circleci.png" width="90%">
+                  </span>
+                </div>
+                <p style="color:#239b56">Custom docker images</p>
+                <p style="color:#239b56">Quay.io / GitLab / Docker hub container registry</p>
               </section>
 
 
