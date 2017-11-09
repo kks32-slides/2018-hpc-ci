@@ -64,8 +64,21 @@
                 <br/><br/>
                 <h4>Imperial College London<br/>10 November 2017.</h4>
               </section>
+            </section>
 
-              <!-- Numerical methods -->
+            <section>
+              <section>
+                <h3>Overview</h3>
+                <ul>
+                  <li>Who we are</li>
+                  <li>Why CI and what do we want to acheive</li>
+                  <li>How (Test frameworks, Travis, Jenkins)</li>
+                  <li>How - Containers (Docker, Singularity)</li>
+                </ul>
+              </section>
+            </section>
+
+            <section><!-- Who we are -->
               <section>
                 <h3>Cambridge-Berkeley computational geomechanics</h3>
                 <ul>
@@ -115,10 +128,9 @@
               </section>
             </section>
 
-            
             <!-- Software development -->
             <section>
-              
+
               <!-- Git -->
               <section>
                 <h2>Git hosting</h2>
@@ -249,6 +261,13 @@ addons:
                 <p style="color:#FF0000">Installing multiple versions of libraries is complicated!</p>
               </section>
 
+              <section>
+                <h3>Challenges of running CI on HPC</h3>
+                <ul>
+                  <li>Job schedulers</li>
+                </ul>
+              </section>
+
               <!-- Containers -->
               <section>
                 <h2>Docker containers</h2>
@@ -260,7 +279,22 @@ addons:
                 <img style="border:0;" src="images/docker-vm.png" width="60%">
               </section>
 
+              <section>
+                <h3>Challenges of running Docker on HPC environments</h3>
+                <ul>
+                  <li>Permissions on multi-user unix</li>
+                  <li>Permissions on shared file systems</li>
+                </ul>
+              </section>
 
+              <section>
+                <h3>Singularity containers</h3>
+                <ul>
+                  <li>Compatible with (many) docker images</li>
+                  <li>Allows access to external filesystems</li>
+                </ul>
+                <img src="images/singularity.svg">
+              </section>
 
               <!-- Software development roadmap -->
               <section>
