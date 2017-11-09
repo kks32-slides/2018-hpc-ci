@@ -337,12 +337,15 @@ jobs:
               <!-- Singularity -->
               <section>
                 <h3>Singularity containers</h3>
+                <figure>
+                  <img src="images/singularity.svg" width="30%">
+                </figure>
                 <ul>
                   <li>Compatible with (many) docker images</li>
-                  <li>Allows access to external filesystems</li>
                   <li>Installed as a single (setgid) executable</li>
+                  <li>uid same inside and outside container</li>
+                  <li>Filesystems can be used without problems</li>
                 </ul>
-                <img src="images/singularity.svg">
               </section>
 
 
