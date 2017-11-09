@@ -75,7 +75,7 @@
                   <li> Lattice Element Method </li>
                 </ul>
                 <figure>
-                  <img src="images/themes/cb-geo.png" width ="100%">
+                  <img style="border:0;" src="images/themes/cb-geo.png" width ="100%">
                   <figcaption><a href="http://www.cb-geo.com">View the CB-Geo website for 
                       more information and software tools</a></figcaption>
                 </figure>
@@ -95,9 +95,9 @@
                   </li>
                 </ul>
                 <figure>
-                  <img src="images/csd3.png" height="200">
-                  <img src="images/wilkes2.png" height="200">
-                  <img src="images/peta4.png" height="200">
+                  <img style="border:0;" src="images/csd3.png" height="200">
+                  <img style="border:0;" src="images/wilkes2.png" height="200">
+                  <img style="border:0;" src="images/peta4.png" height="200">
                 </figure>
               </section>
 
@@ -110,7 +110,7 @@
                         "software carpentry" "reproducible research"</li>
                 </ul>
                 <figure>
-                  <img src="images/bettersoftware.jpg" height="200">
+                  <img style="border:0;" src="images/bettersoftware.jpg" height="200">
                 </figure>
               </section>
             </section>
@@ -122,7 +122,7 @@
               <!-- Git -->
               <section>
                 <h2>Git hosting</h2>
-                <img src="images/git-hosting.jpg" width="80%">
+                <img style="border:0;" src="images/git-hosting.jpg" width="80%">
                 <p style="color:#239b56">GitLab has integrated CI!</p>
                 <p>Repositories are auto-mirrored between GitHub and GitLab</p>
                 <p style="color:#FF0000">Issues / PRs are not synced after first mirror</p>
@@ -140,15 +140,14 @@
                     <li>Benchmarks</li>
                     <li>Static analysis</li>
                     <li>Coverage analysis</li>
-                    <li>Formatting - clangformat</li>
+                    <li>Formatting - clangformat / astyle</li>
                     <li>Documentation</li>
-                    <li>Continous delivery - Deployments</li>
                   </ul>
                 </div>
                 <div style="float: right; width: 50%;">
-                  <img src="images/gitlab_ci.png" width="80%">
+                  <img style="border:0;" src="images/gitlab_ci.png" width="80%">
                 </div>                              
-                <img src="images/ci.png" width="80%">
+                <img style="border:0;" src="images/ci.png" width="80%">
               </section>
 
               <!-- Unit testing -->
@@ -170,14 +169,72 @@
                       All tests passed (36 assertions in 3 test cases)
                     </span>
                   </p>
-                  <img src="images/jenkins.png" width="80%">
+                  <img style="border:0;" src="images/jenkins.png" width="80%">
                 </div>
                 <div style="float: right; width: 60%;">
-                  <img src="images/unit_test.png" width="80%">
+                  <img style="border:0;" src="images/unit_test.png" width="80%">
                 </div>
               </section>
 
               
+              <!-- Code coverage -->
+              <section>
+                <h2>Code coverage</h2>
+                <div style="float: left; width: 60%;">
+                  <pre>
+                    <code class="shell">
+# Codecov
+  - compiler: gcc
+env:
+  - SPECIAL=codecoverage
+addons:
+  apt:
+    sources: ['ubuntu-toolchain-r-test']
+    packages: ['g++-5', 'ruby']
+  before_script:
+    - wget lcov_1.11.orig.tar.gz
+    - tar xf lcov_1.11.orig.tar.gz
+    - sudo make -C lcov-1.11/ install
+  after_success:
+    - rm -rf ./* && cmake .. -DENABLE_COVERAGE=On
+    - make clean && make
+    - ./felib
+    - ./felibtest
+    - make gcov
+    - make lcov
+    - bash <(curl -s https://codecov.io/bash) -X gcov
+                    </code>
+                  </pre>
+                </div>
+                <div style="float: right; width: 40%;">
+                  <img style="border:0;" src="images/codecov.png" width="100%">
+                </div>
+                <div style="clear: both; width: 100%">
+                  Coverage tools: <p><a href="https://codecov.io">codecov.io</a> and <a href="https://coversall.io">coversall</a></p>
+                </div>
+              </section>
+
+              
+              <!-- Static analysis -->
+              <section>
+                <h2>Static analysis</h2>
+                <div style="float: left; width: 60%;">
+                  <img style="border:0;" src="images/coverity.png" width="100%">
+                </div>
+                <div style="float: right; width: 40%;">
+                  <img style="border:0;" src="images/coverity-chart.png" width="100%">
+                </div>
+                <div style="clear: both; width: 100%">
+                  Static analysis tools: <p><a href="https://scan.coverity.com">Coverity</a>,
+                    <a href="https://www.viva64.com/en/pvs-studio/">PVS Studio</a>,
+                    <a href="http://cppcheck.sourceforge.net/">CPP Check</a>
+                    <a href="https://clang-analyzer.llvm.org/">clang-staticanalysis</a></p>
+                </div>
+              </section>
+            </section>
+
+            <!-- Continous Integration -->
+            <section>
               <section>
                 <h3>TravisCI: Build matrix for different compilers</h3>
                 <div style="float: left; width: 100%;">
@@ -200,29 +257,24 @@
                   <li>Docker containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries – anything you can install on a server.</li>
                   <li>This guarantees that it will always run the same - <strong>Research reproducability</strong></li>
                   </ul>
-                <img src="images/docker-vm.png" width="60%">
+                <img style="border:0;" src="images/docker-vm.png" width="60%">
               </section>
 
 
 
               <!-- Software development roadmap -->
               <section>
-                <h3>Future HPCS and Big-Data systems</h3>
+                <h3>Vision for CI in HPCS</h3>
                 <div style="float: left; width: 45%;">
                   <ul>
-                    <li>Opensource development</li>
-                    <li>Modular code development</li>
-                    <li>HDF5</li>
-                    <li>In memory databases</li>
-                    <li>Apache Spark - MapReduce</li>
-                    <li>Version control</li>
-                    <li>Unit testing</li>
-                    <li>Continous integration and deployment</li>
-                    <li>Docker container - Kubernetes</li>
+                    <li>Integrated CI using YAML-like configuration</li>
+                    <li>Containers and Orchestration</li>                    
+                    <li>Continous delivery and deployment</li>
+                    <li>Unified reporting format</li>
                   </ul>
                 </div>
                 <div style="float: right; width: 55%;">
-                    <img src="images/software.png" width ="100%">
+                    <img style="border:0;" src="images/continous-deployment.png" width ="100%">
                 </div>
               </section>
             </section>
@@ -231,24 +283,10 @@
             <section>
               <!-- Thank you! -->
               <section>
-                <h1> Thank you!! </h1>
-                <p>
-                  <br/> Krishna Kumar, <a href="mailto:kks32@cam.ac.uk">kks32@cam.ac.uk</a>
-                </p>
-                <br/>
-                <br/><br/>
+                <img style="border:0;" src="images/xkcd-automation.png" width ="55%">
+                <figcaption><a href="https://xkcd.com/1319/">xkcd automation</a></figcaption>
 
-                <div style="float: left; width: 100%;">
-                  <span style="float: left; width: 33%; text-align: center;">
-                    <img style="border:0;" src="images/themes/cued.png" width="100%">
-                  </span>
-                  <span style="float: left; width: 33%; text-align: center;">
-                    <img style="border:0;" src="images/themes/cb-geo-text-white.png" width="100%">
-                  </span>
-                  <span style="float: right; width: 33%; text-align: center;">
-                    <img style="border:0;" src="images/themes/hpcs.png" width="100%">
-                  </span>
-                </div>
+                <h1> Thank you!! </h1>
               </section>
             </section>
             <!-- Special thanks to Chitra atthai! -->
