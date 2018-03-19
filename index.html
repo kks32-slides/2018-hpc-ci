@@ -62,11 +62,8 @@
                   </span>
                 </div>
                 <br/><br/>
-                <h4>Imperial College London<br/>10 November 2017.</h4>
+                <h4>Computational Seminar Day<br/>19 March 2018.</h4>
               </section>
-            </section>
-
-            <section><!-- Who we are -->
               <section>
                 <h3>Cambridge-Berkeley computational geomechanics</h3>
                 <ul>
@@ -77,41 +74,8 @@
                 </ul>
                 <figure>
                   <img style="border:0;" src="images/themes/cb-geo.png" width ="100%">
-                  <figcaption><a href="http://www.cb-geo.com">View the CB-Geo website for 
+                  <figcaption><a href="http://www.cb-geo.com">View the CB-Geo website for
                       more information and software tools</a></figcaption>
-                </figure>
-              </section>
-
-              <section>
-                <h3>Research Computing @Cambridge</h3>
-                <ul>
-                  <li>Cambridge Service for Data-Driven Discovery (CSD3)
-                    <ul>
-                      <li><strong>Wilkes-2</strong> <br/>
-                        360 NVidia P100 GPUs</li>
-                      <li><strong>PETA4</strong><br/>
-                        24576 cores Intel Skylake + <br/>
-                        342 nodes Intel Xeon Phi (Knights Landing)</li>
-                      <li><strong>Openstack</strong> private cloud infrastructure</li></ul>
-                  </li>
-                </ul>
-                <figure>
-                  <img style="border:0;" src="images/csd3.png" height="200">
-                  <img style="border:0;" src="images/wilkes2.png" height="200">
-                  <img style="border:0;" src="images/peta4.png" height="200">
-                </figure>
-              </section>
-
-              <section>
-                <h3>Research Software Engineering @Cambridge</h3>
-                <ul>
-                  <li>Partner with researchers at Cambridge and other Universities</li>
-                  <li>Help researchers make better use of our compute resources</li>
-                  <li>Spread information about best practices<br/>
-                        "software carpentry" "reproducible research"</li>
-                </ul>
-                <figure>
-                  <img style="border:0;" src="images/bettersoftware.jpg" height="200">
                 </figure>
               </section>
             </section>
@@ -129,7 +93,7 @@
               </section>
 
 
-              
+
               <!-- Continous Integration -->
               <section>
                 <h2>What do we want to test with Continuous Integration?</h2>
@@ -146,7 +110,7 @@
                 </div>
                 <div style="float: right; width: 50%;">
                   <img style="border:0;" src="images/gitlab_ci.png" width="80%">
-                </div>                              
+                </div>
                 <img style="border:0;" src="images/ci.png" width="80%">
               </section>
 
@@ -176,7 +140,7 @@
                 </div>
               </section>
 
-              
+
               <!-- Code coverage -->
               <section>
                 <h2>Code coverage</h2>
@@ -214,7 +178,7 @@ addons:
                 </div>
               </section>
 
-              
+
               <!-- Static analysis -->
               <section>
                 <h2>Static analysis</h2>
@@ -240,7 +204,7 @@ addons:
                 <h3>Choosing a CI tool</h3>
                 <img style="border:0;" src="images/choose-ci.png" width="80%">
               </section>
-              
+
 
               <!-- Travis CI -->
               <section>
@@ -291,7 +255,7 @@ jobs:
             cd build
             cmake -DCMAKE_BUILD_TYPE=Release \
                   -DCMAKE_CXX_COMPILER=g++ ..
-            make -j8 
+            make -j8
             ctest -VV
                       </code>
                     </pre>
@@ -380,7 +344,7 @@ singularity run \
                 <div style="float: left; width: 45%;">
                   <ul>
                     <li>Integrated CI using YAML-like configuration</li>
-                    <li>Containers and Orchestration</li>                    
+                    <li>Containers and Orchestration</li>
                     <li>Continuous delivery and deployment</li>
                     <li>Unified reporting format</li>
                   </ul>
